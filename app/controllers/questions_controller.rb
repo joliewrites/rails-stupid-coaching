@@ -1,13 +1,14 @@
 class QuestionsController < ApplicationController
   def questions
+    @time = Time.now
   end
 
   def answers
     @user_input = params[:answer]
-    if params[:answer].include?('?')
-      @coachresponse = 'Silly question, get dressed and go to work!'
+    if @user_input.include?('?')
+      @coachresponse = "Don't ask me, ask your mama!"
     else
-      @coachresponse = "I don't care, get dressed and go to work!"
+      @coachresponse = "I don't care, let's do this!"
     end
   end
 end
